@@ -1,0 +1,403 @@
+{
+  "info": {
+    "name": "Recipes API Tests",
+    "description": "Collection for testing Recipes API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Checks",
+      "item": [
+        {
+          "name": "User Service Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "health"]
+            }
+          }
+        },
+        {
+          "name": "Recipe Service Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recipes", "health"]
+            }
+          }
+        },
+        {
+          "name": "Category Service Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", "health"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Management",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"sara_test\",\n  \"email\": \"sara@test.com\",\n  \"password\": \"123456\",\n  \"firstName\": \"שרה\",\n  \"lastName\": \"כהן\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"sara_test\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get User By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"מנות עיקריות\",\n  \"description\": \"מנות עיקריות טעימות ומזינות\",\n  \"color\": \"#FF5722\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories"]
+            }
+          }
+        },
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories"]
+            }
+          }
+        },
+        {
+          "name": "Create Desserts Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"קינוחים\",\n  \"description\": \"קינוחים מתוקים ומפנקים\",\n  \"color\": \"#E91E63\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ingredients",
+      "item": [
+        {
+          "name": "Create Ingredient - Flour",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"קמח\",\n  \"description\": \"קמח לחם רגיל\",\n  \"defaultUnit\": \"כוס\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ingredients"]
+            }
+          }
+        },
+        {
+          "name": "Create Ingredient - Sugar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"סוכר\",\n  \"description\": \"סוכר לבן\",\n  \"defaultUnit\": \"כוס\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ingredients"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recipes",
+      "item": [
+        {
+          "name": "Create Recipe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Id",
+                "value": "1"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"עוגת שוקולד\",\n  \"description\": \"עוגת שוקולד טעימה ורכה\",\n  \"instructions\": \"1. מערבבים את הקמח והסוכר\\n2. מוסיפים ביצים\\n3. אופים 30 דקות\",\n  \"prepTime\": 15,\n  \"cookTime\": 30,\n  \"servings\": 8,\n  \"difficultyLevel\": \"EASY\",\n  \"isPublic\": true,\n  \"categoryIds\": [2],\n  \"ingredients\": [\n    {\n      \"ingredientId\": 1,\n      \"quantity\": 2,\n      \"unit\": \"כוס\",\n      \"notes\": \"קמח מנופה\"\n    },\n    {\n      \"ingredientId\": 2,\n      \"quantity\": 1,\n      \"unit\": \"כוס\",\n      \"notes\": \"סוכר לבן\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recipes"]
+            }
+          }
+        },
+        {
+          "name": "Get All Recipes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recipes"]
+            }
+          }
+        },
+        {
+          "name": "Get Recipe By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recipes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Search Recipes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/search?title=עוגה",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recipes", "search"],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "עוגה"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Favorites",
+      "item": [
+        {
+          "name": "Add to Favorites",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "User-Id",
+                "value": "1"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/favorites/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "favorites", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get My Favorites",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "User-Id",
+                "value": "1"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/favorites",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "favorites"]
+            }
+          }
+        },
+        {
+          "name": "Check if Favorite",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "User-Id",
+                "value": "1"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/favorites/1/check",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "favorites", "1", "check"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ratings",
+      "item": [
+        {
+          "name": "Rate Recipe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Id",
+                "value": "1"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"review\": \"עוגה מדהימה! קלה להכנה וטעימה מאוד\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ratings/recipe/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ratings", "recipe", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Recipe Ratings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ratings/recipe/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ratings", "recipe", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Average Rating",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ratings/recipe/1/average",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ratings", "recipe", "1", "average"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
